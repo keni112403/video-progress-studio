@@ -1,0 +1,4 @@
+interface:
+  display_name: "Video Progress Studio"
+  short_description: "六款可定制的视频进度条：从字幕到带星星、可颂或个人图片的透明视频"
+  default_prompt: "Use $video-progress-studio to show progress-bar styles and create a transparent overlay from my subtitles."

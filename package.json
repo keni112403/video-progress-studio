@@ -1,0 +1,20 @@
+{
+  "name": "video-progress-studio",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "preview": "remotion studio src/index.tsx",
+    "still": "remotion still src/index.tsx",
+    "render": "remotion render src/index.tsx"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.486",
+    "react": "19.2.3",
+    "react-dom": "19.2.3",
+    "remotion": "4.0.486"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.7",
+    "typescript": "5.9.3"
+  }
+}

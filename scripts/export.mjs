@@ -1,0 +1,11 @@
+import {spawnSync} from 'node:child_process';
+import {resolve,dirname} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {existsSync,mkdirSync} from 'node:fs';
+const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
+const [props,output]=process.argv.slice(2);
+if(!props||!output||!output.endsWith('.mov'))throw Error('Usage: node scripts/export.mjs config.json output.mov');
+const target=resolve(output);if(existsSync(target))throw Error('Output exists; choose a new filename.');
+mkdirSync(dirname(target),{recursive:true});
+const r=spawnSync(process.execPath,[resolve(root,'node_modules/@remotion/cli/remotion-cli.js'),'render','src/index.tsx','Overlay',target,'--props',resolve(props),'--codec=prores','--prores-profile=4444','--image-format=png','--pixel-format=yuva444p10le'],{cwd:root,stdio:'inherit'});
+process.exit(r.status??1);

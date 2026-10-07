@@ -1,0 +1,28 @@
+{
+  "width": 1920,
+  "height": 1080,
+  "fps": 30,
+  "duration": 12,
+  "position": "top",
+  "style": "burger",
+  "mascot": "croissant",
+  "labels": true,
+  "chapters": [
+    {
+      "label": "开场",
+      "start": 0
+    },
+    {
+      "label": "一个想法",
+      "start": 2
+    },
+    {
+      "label": "动手试试",
+      "start": 5
+    },
+    {
+      "label": "小结",
+      "start": 9
+    }
+  ]
+}
