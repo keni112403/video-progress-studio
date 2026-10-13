@@ -7,6 +7,16 @@ description: Create customizable transparent video chapter-progress overlays fro
 
 Deliver a transparent overlay video for a video editor. Resolve paths relative to this folder. Requires an agent with local file access and command execution, Node.js/npm and a Remotion-supported browser runtime. Python 3 powers the subtitle helper. FFmpeg/ffprobe enable independent verification. No Codex-specific API is required; agents without these capabilities cannot render locally.
 
+## Check readiness before first use
+
+This is a multi-file skill. Saving this text alone does not install its renderer. First check for `package.json`, `package-lock.json`, `tsconfig.json`, `src/index.tsx`, `src/progress.tsx`, `src/burger.tsx`, `src/playground.tsx`, `scripts/export.mjs`, `scripts/prepare_subtitles.py`, `examples/demo.json`, `references/configuration.md` and `previews/gallery.png` relative to this file.
+
+If files are missing, use the complete package from https://github.com/keni112403/video-progress-studio. Prefer a published versioned package; otherwise resolve a specific full commit SHA and download that commit's archive. Record the selected version/SHA beside the working copy. Do not invent a release URL, mix versions, overwrite a customized installation, or download latest on every invocation. If an existing complete copy is available, reuse it. A temporary download is session preparation, not persistent account installation. If networking or execution is unavailable, explain the missing capability and point to the complete ZIP upload or a local execution environment; do not claim successful installation.
+
+For a complete copy, follow `references/installation.md`. Run `node scripts/check-install.mjs`, install locked dependencies with `npm ci` if needed, then perform the short smoke test once per new installation or runtime change. If using an older package without these helpers, check its prerequisites and render a small example manually. A readiness check alone does not prove browser rendering works. Report skill persistence and rendering readiness separately. Preserve host-required Save/upload confirmations.
+
+The smoke-test dimensions and style are diagnostic fixtures only; they do not select the user's video style or size. Continue the onboarding below after setup.
+
 ## Guide new users: style and video size
 
 Before asking questions, extract choices already provided in the current conversation: style/reference, aspect ratio or pixel dimensions, position, colors, images, subtitles and timing. Reuse these choices. Ask only for missing information; never restart onboarding merely because a subtitle file arrives later.
@@ -37,7 +47,7 @@ Use the resolved style and dimensions. Default to top placement and 30 fps unles
 
 ## Build and inspect
 
-Use a working copy of this folder for each video. Install pinned dependencies with `npm install`. Do not assume another local project or hard-coded machine path exists. Keep customer material out of the distributable skill.
+Use a working copy of this folder for each video. Install pinned dependencies with `npm ci`. Do not assume another local project or hard-coded machine path exists. Keep customer material out of the distributable skill.
 
 Create a config based on `examples/demo.json`. Optional user images go in `public/`; `image` is a relative path inside that directory. Transparent PNG/WebP recommended. If a white background needs removal, use available image-editing tools and verify the result; if unavailable, disclose that rather than calling white transparent. Built-in star/croissant/burger vectors are illustrative presets, not the reference photographs.
 

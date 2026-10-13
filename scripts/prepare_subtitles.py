@@ -12,5 +12,6 @@ for m in re.finditer(pattern,s,re.S):
  cues.append({'start':start,'end':end,'text':re.sub('<[^>]+>','',m['t']).strip()})
 if not cues:raise SystemExit('No timed cues found. Plain text needs timing before export.')
 cues.sort(key=lambda c:c['start'])
+Path(a.output).parent.mkdir(parents=True, exist_ok=True)
 Path(a.output).write_text(json.dumps({'durationEstimate':max(c['end'] for c in cues),'durationSource':'last subtitle end; verify silent tail','cues':cues},ensure_ascii=False,indent=2))
 print(f'{len(cues)} cues parsed')
